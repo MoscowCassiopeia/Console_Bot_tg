@@ -2,7 +2,7 @@ users.txt
 *.my
 config.py
 /lib
-/bib
+/bin
 /include
 .vscode
 pip-selfcheck.json
