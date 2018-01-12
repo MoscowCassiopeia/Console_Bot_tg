@@ -22,7 +22,7 @@ from telegram.ext import RegexHandler
 '''
 #==================Настройки===========================================
 #чаты которым разрешен доступ
-ACCESS_CHAT = 131313131,
+ACCESS_CHAT = 887171717,
 
 TOKEN_BOT = '134393343:AAKOqj-PTro15ImC9FGyCNVy9wysuRY7Dfs'
 
