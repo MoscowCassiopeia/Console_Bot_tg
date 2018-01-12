@@ -1,6 +1,6 @@
 users.txt
 *.my
-config.py
+#config.py
 /lib
 /bin
 /include
