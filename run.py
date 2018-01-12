@@ -4,6 +4,7 @@ import logging
 from telegram.ext import Updater
 from telegram.ext import CommandHandler
 from telegram.ext import RegexHandler
+import config as cfg
 
 '''
 Бот для телеграма, который позволяет использовать телеграм как консоль вашего компьютера.
@@ -20,16 +21,7 @@ from telegram.ext import RegexHandler
 - отправьте нужную команду, примеры команд: "ls", "pwd", "ls -al", "cd ..", "cd dir"
 - выход из контекста "dir_exit"
 '''
-#==================Настройки===========================================
-#чаты которым разрешен доступ
-ACCESS_CHAT = 887171717,
 
-TOKEN_BOT = '134393343:AAKOqj-PTro15ImC9FGyCNVy9wysuRY7Dfs'
-
-#Команды на включение и выключение контекста
-ON_CONTEXT_CMD = 'dir'
-OFF_CONTEXT_CMD = 'dir_exit'
-#======================================================================
 
 #Для хранения chat_id у которых включен контекст
 context = []
@@ -37,7 +29,7 @@ context = []
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 
-updater = Updater(token=TOKEN_BOT)
+updater = Updater(token=cfg.TOKEN_BOT)
 dispatcher = updater.dispatcher
 
 def access_denied(update):
@@ -55,7 +47,7 @@ def check_access(update):
     '''
     Проверяет, включен ли контекст у chat_id
     '''
-    if update.message.chat_id in ACCESS_CHAT:
+    if update.message.chat_id in cfg.ACCESS_CHAT_ID:
         return True
     else:
         return False
@@ -197,8 +189,8 @@ def main():
     cd_up_handler = RegexHandler(pattern=r'^cd \.\.$', callback=cmd_up)
     cd_handler = RegexHandler(pattern=r'^cd .{1,256}$', callback=cmd_cd)    
     cmd_handler = RegexHandler(pattern=r'^.{1,1024}$', callback=cmd)
-    context_handler = CommandHandler(ON_CONTEXT_CMD, on_cntx, pass_user_data=False)
-    exit_context_handler = CommandHandler(OFF_CONTEXT_CMD, off_cntx)
+    context_handler = CommandHandler(cfg.ON_CONTEXT_CMD, on_cntx, pass_user_data=False)
+    exit_context_handler = CommandHandler(cfg.OFF_CONTEXT_CMD, off_cntx)
     get_handler = RegexHandler(pattern='^get .{1,256}$', callback=cmd_get)    
    
     dispatcher.add_handler(cd_up_handler)
