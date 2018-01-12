@@ -98,7 +98,8 @@ def split_message(txt):
                 msgs.append(tmp_msg)
                 tmp_msg = ''            
             tmp_msg += f'{line}\n'
-        msgs.append(tmp_msg)
+        else:
+          msgs.append(tmp_msg)
         return msgs
     else:
         return [txt]
