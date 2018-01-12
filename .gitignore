@@ -1,3 +1,9 @@
 users.txt
 *.my
 config.py
+/lib
+/bib
+/include
+.vscode
+pip-selfcheck.json
+__pycache__
