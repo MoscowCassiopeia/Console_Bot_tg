@@ -1,5 +1,5 @@
-ACCESS_CHAT_ID = 187580356,
-TOKEN_BOT = '294694840:AAGOej-QTfo67ImC9XGxBNVy9wysuRY7Dvs'
+ACCESS_CHAT_ID = ,
+TOKEN_BOT = ''
 
 #Команды на включение и выключение контекста
 ON_CONTEXT_CMD = 'dir'
